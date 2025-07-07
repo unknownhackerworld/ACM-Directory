@@ -28,7 +28,7 @@ export default function MemberProfile() {
     );
   }
 
-  const avatarUrl = `https://avatar.iran.liara.run/public/${member.gender}`;
+  const avatarUrl = `https://avatar.iran.liara.run/public/${member.gender === 'male' ? "boy" : "girl"}?seed=${member.id}`;
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col">
@@ -109,7 +109,7 @@ export default function MemberProfile() {
         </div>
       </main>
 
-      <footer className="bg-gray-800 text-white text-center py-4 md:py-6 mt-6 md:mt-10">
+      <footer className="bg-gray-950 text-white text-center py-4 md:py-6 mt-6 md:mt-10">
         <p className="text-sm md:text-lg">© 2025 ACM Student Chapter. Built By Maattraan with 💙</p>
       </footer>
     </div>

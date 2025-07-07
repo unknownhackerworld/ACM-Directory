@@ -229,7 +229,7 @@ export default function App() {
                   onClick={() => navigate(`/member/${member.id}`)}
                 >
                   <div className="flex items-center justify-between">
-                    <IoPersonCircleSharp className="text-4xl text-blue-400" />
+                    <img src={`https://avatar.iran.liara.run/public/${member.gender === 'male' ? "boy" : "girl"}?seed=${member.id}`} alt="Avatar" className="w-10 h-10 rounded-full object-cover" />
                     <span className="text-sm bg-blue-900 text-blue-200 px-2 py-1 rounded-full">
                       {member.role}
                     </span>
@@ -250,7 +250,7 @@ export default function App() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-blue-900 text-white text-center py-4 mt-auto">
+      <footer className="bg-gray-950 text-white text-center py-4 mt-auto">
         <p>© 2025 ACM Student Chapter. Built By Maattraan with 💙</p>
       </footer>
     </div>
