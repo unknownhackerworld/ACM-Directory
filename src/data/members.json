@@ -3,60 +3,60 @@
     "id": 1,
     "name": "Aarav Raj",
     "role": "Chair",
+    "gender": "boy",
     "email": "aarav.raj@acm.org",
     "phone": "+91-9876543210",
     "dob": "2003-08-15",
     "address": "Chennai, Tamil Nadu",
     "domain": "AI/ML",
-    "skills": ["Python", "TensorFlow", "Data Science"],
-    "image": "https://via.placeholder.com/250x250.png?text=Aarav"
+    "skills": ["Python", "TensorFlow", "Data Science"]
   },
   {
     "id": 2,
     "name": "Diya Sharma",
     "role": "Vice Chair",
+    "gender": "girl",
     "email": "diya.sharma@acm.org",
     "phone": "+91-9876501234",
     "dob": "2002-05-20",
     "address": "Coimbatore, Tamil Nadu",
     "domain": "Cybersecurity",
-    "skills": ["Ethical Hacking", "Networking", "Python"],
-    "image": "https://via.placeholder.com/250x250.png?text=Diya"
+    "skills": ["Ethical Hacking", "Networking", "Python"]
   },
   {
     "id": 3,
     "name": "Karthik Iyer",
     "role": "Secretary",
+    "gender": "boy",
     "email": "karthik.iyer@acm.org",
     "phone": "+91-9944123456",
     "dob": "2001-12-02",
     "address": "Madurai, Tamil Nadu",
     "domain": "Web Development",
-    "skills": ["React", "Node.js", "MongoDB"],
-    "image": "https://via.placeholder.com/250x250.png?text=Karthik"
+    "skills": ["React", "Node.js", "MongoDB"]
   },
   {
     "id": 4,
     "name": "Sneha Mohan",
     "role": "Member",
+    "gender": "girl",
     "email": "sneha.mohan@acm.org",
     "phone": "+91-9844032109",
     "dob": "2004-03-18",
     "address": "Trichy, Tamil Nadu",
     "domain": "UI/UX",
-    "skills": ["Figma", "Adobe XD", "CSS"],
-    "image": "https://via.placeholder.com/250x250.png?text=Sneha"
+    "skills": ["Figma", "Adobe XD", "CSS"]
   },
   {
     "id": 5,
     "name": "Rahul Menon",
     "role": "Member",
+    "gender": "boy",
     "email": "rahul.menon@acm.org",
     "phone": "+91-9811123456",
     "dob": "2000-09-25",
     "address": "Salem, Tamil Nadu",
     "domain": "IoT",
-    "skills": ["Arduino", "Raspberry Pi", "C++"],
-    "image": "https://via.placeholder.com/250x250.png?text=Rahul"
+    "skills": ["Arduino", "Raspberry Pi", "C++"]
   }
 ]
