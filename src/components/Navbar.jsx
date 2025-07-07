@@ -82,7 +82,7 @@ export default function Navbar() {
         <div className="container mx-auto px-4 flex items-center justify-between flex-wrap gap-4 relative">
           {/* Left: Logo */}
           <h1
-            className="text-2xl md:text-3xl font-bold flex items-center gap-2 cursor-pointer hover:text-purple-300 transition"
+            className="text-2xl md:text-3xl font-bold flex items-center gap-2 cursor-pointer hover:text-blue-300 transition"
             onClick={handleLogoClick}
           >
             <FaUsers /> ACM Member Directory
