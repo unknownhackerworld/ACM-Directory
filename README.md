@@ -80,14 +80,14 @@ Each card displays:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/acm-member-directory.git
-cd acm-member-directory
+git clone https://github.com/unknownhackerworld/ACM-Directory.git
+cd ACM-Directory
 ```
 
 ### 2. Install Dependencies
 
 ```bash
-npm install
+npm install --force
 ```
 
 ### 3. Start the Development Server
@@ -106,12 +106,21 @@ Your `members.json` should follow this structure:
 
 ```
 {
-  "id": 1,
-  "name": "Jane Doe",
-  "email": "jane.doe@example.com",
-  "role": "Secretary",
-  "domain": "AI/ML",
-  "skills": ["Python", "TensorFlow", "Machine Learning"]
+ "id": 1,
+    "name": "Devansh Dani",
+    "role": "Member",
+    "gender": "girl",
+    "email": "ddevan@hotmail.com",
+    "phone": "08640740126",
+    "dob": "2007-07-04",
+    "address": "Bhagalpur, Karnataka",
+    "domain": "Cybersecurity",
+    "skills": [
+      "Cryptography",
+      "Ethical Hacking",
+      "Python",
+      "Networking"
+    ]
 }
 ```
 
