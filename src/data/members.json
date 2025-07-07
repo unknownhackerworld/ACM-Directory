@@ -1,37 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Allen Joseph",
+    "name": "Aarav Raj",
     "role": "Chair",
-    "email": "allen@example.com",
-    "skills": ["React", "Cybersecurity", "Python"]
+    "email": "aarav.raj@acm.org",
+    "phone": "+91-9876543210",
+    "dob": "2003-08-15",
+    "address": "Chennai, Tamil Nadu",
+    "domain": "AI/ML",
+    "skills": ["Python", "TensorFlow", "Data Science"],
+    "image": "https://via.placeholder.com/250x250.png?text=Aarav"
   },
   {
     "id": 2,
-    "name": "Priya Ram",
+    "name": "Diya Sharma",
     "role": "Vice Chair",
-    "email": "priya@example.com",
-    "skills": ["HTML", "CSS", "TailwindCSS"]
+    "email": "diya.sharma@acm.org",
+    "phone": "+91-9876501234",
+    "dob": "2002-05-20",
+    "address": "Coimbatore, Tamil Nadu",
+    "domain": "Cybersecurity",
+    "skills": ["Ethical Hacking", "Networking", "Python"],
+    "image": "https://via.placeholder.com/250x250.png?text=Diya"
   },
   {
     "id": 3,
-    "name": "Rahul Venkatesh",
+    "name": "Karthik Iyer",
     "role": "Secretary",
-    "email": "rahul@example.com",
-    "skills": ["Node.js", "MongoDB", "Express"]
+    "email": "karthik.iyer@acm.org",
+    "phone": "+91-9944123456",
+    "dob": "2001-12-02",
+    "address": "Madurai, Tamil Nadu",
+    "domain": "Web Development",
+    "skills": ["React", "Node.js", "MongoDB"],
+    "image": "https://via.placeholder.com/250x250.png?text=Karthik"
   },
   {
     "id": 4,
-    "name": "Divya Krishnan",
+    "name": "Sneha Mohan",
     "role": "Member",
-    "email": "divya@example.com",
-    "skills": ["UI/UX", "Figma", "JavaScript"]
+    "email": "sneha.mohan@acm.org",
+    "phone": "+91-9844032109",
+    "dob": "2004-03-18",
+    "address": "Trichy, Tamil Nadu",
+    "domain": "UI/UX",
+    "skills": ["Figma", "Adobe XD", "CSS"],
+    "image": "https://via.placeholder.com/250x250.png?text=Sneha"
   },
   {
     "id": 5,
-    "name": "Karthik S",
+    "name": "Rahul Menon",
     "role": "Member",
-    "email": "karthik@example.com",
-    "skills": ["Linux", "Shell", "Security"]
+    "email": "rahul.menon@acm.org",
+    "phone": "+91-9811123456",
+    "dob": "2000-09-25",
+    "address": "Salem, Tamil Nadu",
+    "domain": "IoT",
+    "skills": ["Arduino", "Raspberry Pi", "C++"],
+    "image": "https://via.placeholder.com/250x250.png?text=Rahul"
   }
 ]
