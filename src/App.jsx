@@ -29,12 +29,22 @@ export default function App() {
   };
 
   const filteredMembers = useMemo(() => {
+    const query = searchQuery.toLowerCase();
+
     return membersData.filter(member => {
-      const matchesName = member.name.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesSearch =
+        member.name.toLowerCase().includes(query) ||
+        member.role.toLowerCase().includes(query) ||
+        member.skills.some(skill => skill.toLowerCase().includes(query));
+
       const matchesRole = selectedRole === 'All' || member.role === selectedRole;
-      const matchesDomain = selectedDomains.length === 0 || selectedDomains.includes(member.domain);
-      const matchesSkills = selectedSkills.length === 0 || selectedSkills.some(skill => member.skills.includes(skill));
-      return matchesName && matchesRole && matchesDomain && matchesSkills;
+      const matchesDomain =
+        selectedDomains.length === 0 || selectedDomains.includes(member.domain);
+      const matchesSkills =
+        selectedSkills.length === 0 ||
+        selectedSkills.some(skill => member.skills.includes(skill));
+
+      return matchesSearch && matchesRole && matchesDomain && matchesSkills;
     });
   }, [searchQuery, selectedRole, selectedDomains, selectedSkills]);
 
@@ -131,7 +141,7 @@ export default function App() {
               <button
                 key={domain}
                 onClick={() => handleToggle(domain, selectedDomains, setSelectedDomains)}
-                className={`px-3 py-1 rounded-full text-sm border transition ${selectedDomains.includes(domain)
+                className={`px-3 py-1 rounded-full cursor-pointer text-sm border transition ${selectedDomains.includes(domain)
                   ? 'bg-blue-600 text-white border-blue-700'
                   : 'bg-gray-700 text-white'}`}
               >
@@ -146,7 +156,7 @@ export default function App() {
               <button
                 key={skill}
                 onClick={() => handleToggle(skill, selectedSkills, setSelectedSkills)}
-                className={`px-3 py-1 rounded-full text-sm border transition ${selectedSkills.includes(skill)
+                className={`px-3 py-1 cursor-pointer rounded-full text-sm border transition ${selectedSkills.includes(skill)
                   ? 'bg-blue-600 text-white border-blue-700'
                   : 'bg-gray-700 text-white'}`}
               >
