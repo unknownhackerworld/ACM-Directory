@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Allen Joseph",
+    "role": "Chair",
+    "email": "allen@example.com",
+    "skills": ["React", "Cybersecurity", "Python"]
+  },
+  {
+    "id": 2,
+    "name": "Priya Ram",
+    "role": "Vice Chair",
+    "email": "priya@example.com",
+    "skills": ["HTML", "CSS", "TailwindCSS"]
+  },
+  {
+    "id": 3,
+    "name": "Rahul Venkatesh",
+    "role": "Secretary",
+    "email": "rahul@example.com",
+    "skills": ["Node.js", "MongoDB", "Express"]
+  },
+  {
+    "id": 4,
+    "name": "Divya Krishnan",
+    "role": "Member",
+    "email": "divya@example.com",
+    "skills": ["UI/UX", "Figma", "JavaScript"]
+  },
+  {
+    "id": 5,
+    "name": "Karthik S",
+    "role": "Member",
+    "email": "karthik@example.com",
+    "skills": ["Linux", "Shell", "Security"]
+  }
+]
