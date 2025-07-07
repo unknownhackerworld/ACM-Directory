@@ -4,7 +4,7 @@ Welcome to the **ACM Member Directory** — a beautifully responsive, interactiv
 
 ---
 
-**🔗 Site is live at:** [https://acm.maattraan.xyz](https://acm.maattraan.xyz)
+**🔗 Site is live at:** [https://acm.maattraan.xyz](https://acm.maattraan.xyz) ✨
 
 ## 🌟 Features
 
