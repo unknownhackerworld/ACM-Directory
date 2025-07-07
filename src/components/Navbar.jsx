@@ -78,7 +78,7 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <header className="bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white py-6 shadow-lg z-50 relative">
+      <header className="sticky top-0 backdrop-blur-md bg-opacity-90 bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white py-6 z-50 shadow-[0px_1px_28px_0px_rgba(39,119,255,0.2)]">
         <div className="container mx-auto px-4 flex items-center justify-between flex-wrap gap-4 relative">
           {/* Left: Logo */}
           <h1
@@ -95,7 +95,7 @@ export default function Navbar() {
                 ref={searchRef}
                 type="text"
                 placeholder="Search by name, role, or skill..."
-                className="w-64 px-4 py-2 rounded-md text-black dark:text-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="w-64 px-4 py-2 rounded-md text-black dark:text-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
@@ -106,13 +106,7 @@ export default function Navbar() {
             )}
 
             {/* Dark Mode Toggle */}
-            <button
-              onClick={() => setDarkMode(prev => !prev)}
-              className="text-xl p-2 rounded-md bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
-              title="Toggle Dark Mode"
-            >
-              {darkMode ? <BsSun className="text-yellow-400" /> : <BsMoon className="text-gray-100" />}
-            </button>
+            
           </div>
         </div>
       </header>
@@ -122,7 +116,7 @@ export default function Navbar() {
         <ul
           ref={dropdownRef}
           style={dropdownStyle}
-          className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-2xl ring-1 ring-purple-500/50 max-h-64 overflow-y-auto"
+          className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-2xl ring-1 ring-blue-500/50 max-h-64 overflow-y-auto"
         >
           {suggestions.map(member => (
             <li
