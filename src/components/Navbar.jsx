@@ -1,10 +1,10 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { FaUsers } from 'react-icons/fa';
+import { FaUsers, FaBars } from 'react-icons/fa';
 import { BsSun, BsMoon } from 'react-icons/bs';
 import { useNavigate, useLocation } from 'react-router-dom';
 import membersData from '../data/members.json';
 
-export default function Navbar() {
+export default function Navbar({ toggleFilters }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('theme') === 'dark');
   const [showDropdown, setShowDropdown] = useState(false);
@@ -80,13 +80,21 @@ export default function Navbar() {
       {/* Navbar */}
       <header className="sticky top-0 backdrop-blur-md bg-opacity-90 bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white py-6 z-50 shadow-[0px_1px_28px_0px_rgba(39,119,255,0.2)]">
         <div className="container mx-auto px-4 flex items-center justify-between flex-wrap gap-4 relative">
-          {/* Left: Logo */}
-          <h1
-            className="text-2xl md:text-3xl font-bold flex items-center gap-2 cursor-pointer hover:text-blue-300 transition"
-            onClick={handleLogoClick}
-          >
-            <FaUsers /> ACM Member Directory
-          </h1>
+          {/* Left: Logo and Hamburger */}
+          <div className="flex items-center gap-4">
+            <button
+              className="md:hidden text-xl"
+              onClick={toggleFilters}
+            >
+              <FaBars />
+            </button>
+            <h1
+              className="text-2xl md:text-3xl font-bold flex items-center gap-2 cursor-pointer hover:text-blue-300 transition"
+              onClick={handleLogoClick}
+            >
+              <FaUsers /> ACM Member Directory
+            </h1>
+          </div>
 
           {/* Right: Search & Toggle */}
           <div className="flex items-center gap-4 relative">
@@ -106,7 +114,7 @@ export default function Navbar() {
             )}
 
             {/* Dark Mode Toggle */}
-            
+           
           </div>
         </div>
       </header>

@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import membersData from './data/members.json';
 import { IoPersonCircleSharp } from 'react-icons/io5';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import Navbar from './components/Navbar';
 
 const roles = ['All', 'Chair', 'Vice Chair', 'Secretary', 'Member'];
@@ -16,6 +17,7 @@ export default function App() {
   const [selectedDomains, setSelectedDomains] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [showFilters, setShowFilters] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ export default function App() {
     setList(prev =>
       prev.includes(value) ? prev.filter(item => item !== value) : [...prev, value]
     );
-    setCurrentPage(1); // Reset to page 1 on filter change
+    setCurrentPage(1);
   };
 
   const filteredMembers = useMemo(() => {
@@ -96,12 +98,32 @@ export default function App() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-900 text-white">
-      <Navbar />
+      <Navbar toggleFilters={() => setShowFilters(!showFilters)} />
 
-      <div className="container mx-auto px-4 py-10 flex gap-6 items-start">
+      <div className="flex flex-grow relative">
+        {/* Mobile Filters Button */}
+        <button
+          className="md:hidden fixed bottom-6 right-6 z-30 bg-blue-600 p-4 rounded-full shadow-lg"
+          onClick={() => setShowFilters(!showFilters)}
+        >
+          {showFilters ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
+        </button>
+
         {/* Sidebar Filters */}
-        <aside className="w-full md:w-56 lg:w-64 bg-gray-800 px-4 py-6 rounded-lg shadow">
-          <h2 className="text-xl font-semibold mb-4">🔍 Filters</h2>
+        <aside className={`
+          w-64 bg-gray-800 px-4 py-6 rounded-lg shadow fixed md:relative h-full md:h-auto z-20
+          transform transition-transform duration-300 ease-in-out
+          ${showFilters ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+        `}>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-semibold">🔍 Filters</h2>
+            <button
+              className="md:hidden text-xl"
+              onClick={() => setShowFilters(false)}
+            >
+              <FaTimes />
+            </button>
+          </div>
 
           <h3 className="text-lg font-semibold mb-2">Domain</h3>
           <div className="flex flex-wrap gap-2 mb-4">
@@ -134,76 +156,86 @@ export default function App() {
           </div>
         </aside>
 
+        {/* Overlay for mobile */}
+        {showFilters && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-10 md:hidden"
+            onClick={() => setShowFilters(false)}
+          />
+        )}
+
         {/* Main Content */}
-        <main className="flex-grow">
-          <div className="relative mb-6 w-full flex flex-col md:flex-row gap-4 md:items-center">
-            {/* Search Input */}
-            <div className="relative w-full md:w-1/2">
-              <input
-                type="text"
-                placeholder="Search by name, role, or skill..."
-                className="w-full px-4 py-2 rounded-md border border-gray-600 bg-gray-800 text-white"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
-
-            {/* Role Dropdown + Total Count */}
-            <div className="flex items-center gap-3">
-              <select
-                className="px-4 py-2 rounded-md border border-gray-600 bg-gray-800 text-white"
-                value={selectedRole}
-                onChange={(e) => setSelectedRole(e.target.value)}
-              >
-                {roles.map(role => (
-                  <option key={role}>{role}</option>
-                ))}
-              </select>
-              <span className="text-gray-200 ml-10 text-xl">Total: {filteredMembers.length} Members</span>
-            </div>
-          </div>
-
-          {/* Filter Tags */}
-          <div className="mb-4 flex flex-wrap gap-2">
-            {selectedDomains.map(domain => (
-              <span key={domain} className="bg-blue-800 text-white px-3 py-1 rounded-full flex items-center gap-2">
-                <button onClick={() => handleToggle(domain, selectedDomains, setSelectedDomains)} className="text-lg font-bold hover:text-red-500">×</button>
-                {domain}
-              </span>
-            ))}
-            {selectedSkills.map(skill => (
-              <span key={skill} className="bg-blue-800 text-white px-3 py-1 rounded-full flex items-center gap-2">
-                <button onClick={() => handleToggle(skill, selectedSkills, setSelectedSkills)} className="text-lg font-bold hover:text-red-500">×</button>
-                {skill}
-              </span>
-            ))}
-          </div>
-
-          {/* Member Cards */}
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {currentMembers.map(member => (
-              <div
-                key={member.id}
-                className="bg-gray-800 p-4 rounded-xl shadow hover:shadow-xl cursor-pointer transition overflow-hidden"
-                onClick={() => navigate(`/member/${member.id}`)}
-              >
-                <div className="flex items-center justify-between">
-                  <IoPersonCircleSharp className="text-4xl text-blue-400" />
-                  <span className="text-sm bg-blue-900 text-blue-200 px-2 py-1 rounded-full">
-                    {member.role}
-                  </span>
-                </div>
-                <h2 className="text-lg font-semibold mt-2">{member.name}</h2>
-                <p className="text-sm text-gray-300">{member.email}</p>
-                <p className="mt-2 text-sm text-gray-200">
-                  Skills: <span className="text-blue-300">{member.skills.join(', ')}</span>
-                </p>
+        <main className="flex-grow p-4 md:ml-0 transition-all duration-300">
+          <div className="max-w-7xl mx-auto">
+            <div className="relative mb-6 w-full flex flex-col md:flex-row gap-4 md:items-center">
+              {/* Search Input */}
+              <div className="relative w-full md:w-1/2">
+                <input
+                  type="text"
+                  placeholder="Search by name, role, or skill..."
+                  className="w-full px-4 py-2 rounded-md border border-gray-600 bg-gray-800 text-white"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
               </div>
-            ))}
-          </div>
 
-          {/* Pagination */}
-          {totalPages > 1 && renderPagination()}
+              {/* Role Dropdown + Total Count */}
+              <div className="flex items-center gap-3">
+                <select
+                  className="px-4 py-2 rounded-md border border-gray-600 bg-gray-800 text-white"
+                  value={selectedRole}
+                  onChange={(e) => setSelectedRole(e.target.value)}
+                >
+                  {roles.map(role => (
+                    <option key={role}>{role}</option>
+                  ))}
+                </select>
+                <span className="text-gray-200 ml-10 text-xl">Total: {filteredMembers.length} Members</span>
+              </div>
+            </div>
+
+            {/* Filter Tags */}
+            <div className="mb-4 flex flex-wrap gap-2">
+              {selectedDomains.map(domain => (
+                <span key={domain} className="bg-blue-800 text-white px-3 py-1 rounded-full flex items-center gap-2">
+                  <button onClick={() => handleToggle(domain, selectedDomains, setSelectedDomains)} className="text-lg font-bold hover:text-red-500">×</button>
+                  {domain}
+                </span>
+              ))}
+              {selectedSkills.map(skill => (
+                <span key={skill} className="bg-blue-800 text-white px-3 py-1 rounded-full flex items-center gap-2">
+                  <button onClick={() => handleToggle(skill, selectedSkills, setSelectedSkills)} className="text-lg font-bold hover:text-red-500">×</button>
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            {/* Member Cards */}
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {currentMembers.map(member => (
+                <div
+                  key={member.id}
+                  className="bg-gray-800 p-4 rounded-xl shadow hover:shadow-xl cursor-pointer transition overflow-hidden"
+                  onClick={() => navigate(`/member/${member.id}`)}
+                >
+                  <div className="flex items-center justify-between">
+                    <IoPersonCircleSharp className="text-4xl text-blue-400" />
+                    <span className="text-sm bg-blue-900 text-blue-200 px-2 py-1 rounded-full">
+                      {member.role}
+                    </span>
+                  </div>
+                  <h2 className="text-lg font-semibold mt-2">{member.name}</h2>
+                  <p className="text-sm text-gray-300">{member.email}</p>
+                  <p className="mt-2 text-sm text-gray-200">
+                    Skills: <span className="text-blue-300">{member.skills.join(', ')}</span>
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && renderPagination()}
+          </div>
         </main>
       </div>
 
