@@ -89,7 +89,7 @@ export default function Navbar({ toggleFilters }) {
               <FaBars />
             </button>
             <h1
-              className="text-2xl md:text-3xl font-bold flex items-center gap-2 cursor-pointer hover:text-blue-300 transition"
+              className="text-2xl md:text-3xl font-bold flex sm:ml-10 items-center gap-2 cursor-pointer hover:text-blue-300 transition"
               onClick={handleLogoClick}
             >
               <FaUsers /> ACM Member Directory

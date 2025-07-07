@@ -35,7 +35,6 @@ export default function MemberProfile() {
       <Navbar />
       <main className="flex-grow">
         <div className="max-w-5xl mx-auto py-8 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-20">
-          {/* Back Button */}
           <button
             onClick={() => navigate('/')}
             className="inline-flex items-center gap-2 md:gap-3 border border-gray-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-xl mb-6 md:mb-10 hover:bg-gray-700 transition-colors duration-200 text-base md:text-xl"
@@ -44,9 +43,7 @@ export default function MemberProfile() {
             <span className="font-medium">Back to Directory</span>
           </button>
 
-          {/* Profile Card */}
           <div className="bg-gray-800 rounded-xl md:rounded-2xl shadow-lg md:shadow-2xl p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-            {/* Left Section */}
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 md:space-y-6">
               <div className="relative w-32 h-32 md:w-40 md:h-40">
                 {!imageLoaded && (
@@ -69,7 +66,6 @@ export default function MemberProfile() {
               </div>
             </div>
 
-            {/* Right Section */}
             <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8 text-base md:text-lg">
               <div>
                 <p className="font-semibold text-xl md:text-2xl">Email:</p>

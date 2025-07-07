@@ -111,7 +111,7 @@ export default function App() {
       <Navbar toggleFilters={() => setShowFilters(!showFilters)} />
 
       <div className="flex flex-grow relative">
-        {/* Mobile Filters Button */}
+        
         <button
           className="md:hidden fixed bottom-6 right-6 z-30 bg-blue-600 p-4 rounded-full shadow-lg"
           onClick={() => setShowFilters(!showFilters)}
@@ -119,7 +119,7 @@ export default function App() {
           {showFilters ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
         </button>
 
-        {/* Sidebar Filters */}
+        
         <aside className={`
           w-64 bg-gray-800 px-4 py-6 rounded-lg shadow fixed md:relative h-full md:h-auto z-20
           transform transition-transform duration-300 ease-in-out
@@ -166,7 +166,7 @@ export default function App() {
           </div>
         </aside>
 
-        {/* Overlay for mobile */}
+        
         {showFilters && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 z-10 md:hidden"
@@ -174,11 +174,11 @@ export default function App() {
           />
         )}
 
-        {/* Main Content */}
+        
         <main className="flex-grow p-4 md:ml-0 transition-all duration-300">
           <div className="max-w-7xl mx-auto">
             <div className="relative mb-6 w-full flex flex-col md:flex-row gap-4 md:items-center">
-              {/* Search Input */}
+              
               <div className="relative w-full md:w-1/2">
                 <input
                   type="text"
@@ -189,7 +189,7 @@ export default function App() {
                 />
               </div>
 
-              {/* Role Dropdown + Total Count */}
+              
               <div className="flex items-center gap-3">
                 <select
                   className="px-4 py-2 rounded-md border border-gray-600 bg-gray-800 text-white"
@@ -204,7 +204,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Filter Tags */}
+            
             <div className="mb-4 flex flex-wrap gap-2">
               {selectedDomains.map(domain => (
                 <span key={domain} className="bg-blue-800 text-white px-3 py-1 rounded-full flex items-center gap-2">
@@ -220,7 +220,7 @@ export default function App() {
               ))}
             </div>
 
-            {/* Member Cards */}
+            
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {currentMembers.map(member => (
                 <div
@@ -243,13 +243,12 @@ export default function App() {
               ))}
             </div>
 
-            {/* Pagination */}
             {totalPages > 1 && renderPagination()}
           </div>
         </main>
       </div>
 
-      {/* Footer */}
+      
       <footer className="bg-gray-950 text-white text-center py-4 mt-auto">
         <p>© 2025 ACM Student Chapter. Built By Maattraan with 💙</p>
       </footer>
